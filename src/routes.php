@@ -18,5 +18,10 @@ return function (App $app) {
         return $container->get('renderer')->render($response, 'index.phtml', $args);
     });
 
+
+    $app->options('/{routes:.+}', function($req, $res, $args){
+        return $res;
+    });
+
     require __DIR__ . '/routes/users.php';
 };
