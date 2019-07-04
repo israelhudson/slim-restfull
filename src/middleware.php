@@ -8,6 +8,16 @@ $app->add(new Tuupola\Middleware\JwtAuthentication([
    'secret' => $container['settings']['secretKey']
 ]));
 
+$app->add(function ($req, $res, $next){
+    $token = filter_input(INPUT_GET, 'token');
+    if($token){
+        $req = $req->withHeader('Authorization', $token);
+    }
+
+    return $next($req, $res);
+});
+
+
 $app->add(function ($req, $res, $next) {
     $response = $next($req, $res);
     return $response
