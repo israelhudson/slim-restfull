@@ -23,7 +23,7 @@ return [
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
-            'posrt' => '3306',
+            'port' => '3306',
             'collation' => 'utf8_unicode_ci',
             'prefix' => ''
         ],
